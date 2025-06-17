@@ -1,0 +1,40 @@
+[package]
+name = "helpdesk-tauri"
+version = "0.1.0"
+description = "HelpDesk application with remote control capabilities"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+rust-version = "1.60"
+
+[[bin]]
+name = "helpdesk-tauri"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.5", features = [ "window-set-title", "window-request-user-attention", "window-center", "window-set-resizable", "shell-open", "window-close", "http-all", "protocol-asset", "window-hide", "window-minimize", "window-maximize", "window-show"] }
+tokio = { version = "1.0", features = ["full"] }
+enigo = "0.1.3"  # Para simulación de mouse y teclado
+image = "0.24"   # Para captura de pantalla
+screenshots = "0.5"  # Para captura de pantalla multiplataforma
+base64 = "0.21"  # Para codificar imágenes
+display-info = "0.4"  # Para información de pantallas
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["serde"] }
+
+[features]
+# by default Tauri runs in production mode
+# when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
+default = [ "custom-protocol" ]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = [ "tauri/custom-protocol" ]
+

@@ -1,0 +1,117 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeDevCommand": "pnpm run dev",
+    "devPath": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm run build",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "AppDeskTauri",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "execute": false,
+        "sidecar": false,
+        "open": true
+      },
+      "fs": {
+        "all": false,
+        "readFile": false,
+        "writeFile": false,
+        "readDir": false,
+        "copyFile": false,
+        "createDir": false,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "exists": false
+      },
+      "window": {
+        "all": false,
+        "create": false,
+        "center": true,
+        "requestUserAttention": true,
+        "setResizable": true,
+        "setTitle": true,
+        "maximize": true,
+        "minimize": true,
+        "close": true,
+        "hide": true,
+        "show": true
+      },
+      "globalShortcut": {
+        "all": false
+      },
+      "os": {
+        "all": false
+      },
+      "path": {
+        "all": false
+      },
+      "protocol": {
+        "all": false,
+        "asset": true,
+        "assetScope": {
+          "allow": ["**"],
+          "deny": []
+        }
+      },
+      "http": {
+        "all": true,
+        "request": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.appdesk.tauri",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [],
+      "externalBin": [],
+      "copyright": "Copyright © 2025 AppDeskTauri. Todos los derechos reservados.",
+      "category": "BusinessApp",
+      "shortDescription": "Sistema de HelpDesk con acceso remoto",
+      "longDescription": "Una aplicación de escritorio moderna para gestión de tickets de soporte técnico con capacidades de acceso remoto en tiempo real.",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      },
+      "macOS": {
+        "frameworks": [],
+        "minimumSystemVersion": "10.13",
+        "exceptionDomain": ""
+      }
+    },
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' https: wss: ws:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https:; font-src 'self' https: data:"
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "AppDeskTauri - Sistema de HelpDesk",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 1000,
+        "minHeight": 700,
+        "center": true,
+        "decorations": true,
+        "transparent": false,
+        "alwaysOnTop": false,
+        "skipTaskbar": false
+      }
+    ]
+  }
+}

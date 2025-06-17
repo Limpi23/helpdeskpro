@@ -1,0 +1,65 @@
+{
+  "name": "appdesk-tauri",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sistema de HelpDesk con acceso remoto - Aplicación de escritorio",
+  "author": "Jonathan Barrero",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/AppDeskTauri.git"
+  },
+  "keywords": ["helpdesk", "tauri", "react", "nestjs", "webrtc", "remote-access"],
+  "scripts": {
+    "dev": "vite",
+    "dev:full": "concurrently \"cd backend && pnpm run start:dev\" \"pnpm run tauri dev\"",
+    "dev:backend": "cd backend && pnpm run start:dev",
+    "dev:frontend": "pnpm run tauri dev",
+    "build": "tsc && vite build",
+    "build:release": "pnpm run build && pnpm run tauri build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "tauri:build:debug": "tauri build --debug",
+    "clean": "rm -rf dist node_modules src-tauri/target",
+    "clean:all": "pnpm run clean && cd backend && rm -rf dist node_modules",
+    "install:all": "pnpm install && cd backend && pnpm install",
+    "test": "echo 'Frontend tests not implemented yet'",
+    "lint": "echo 'Linting not implemented yet'",
+    "format": "echo 'Formatting not implemented yet'"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
+    "@tanstack/react-query": "^5.80.6",
+    "@tauri-apps/api": "^1.6.0",
+    "@tauri-apps/plugin-opener": "^2",
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.9.0",
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.57.0",
+    "react-router-dom": "^7.6.2",
+    "socket.io-client": "^4.8.1",
+    "zod": "^3.25.57"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tauri-apps/cli": "^1.6.3",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.0",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
