@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { Ticket, CreateTicketData, TicketMessage } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL || 
-                (import.meta.env.PROD 
-                  ? 'https://tu-backend.railway.app/api' // Cambiar por tu URL de Railway
-                  : 'http://localhost:3001/api');
+// Configuración centralizada de URLs
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 const api = axios.create({
   baseURL: API_URL,

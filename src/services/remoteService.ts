@@ -20,13 +20,10 @@ class RemoteService {
   }
 
   private initializeSocket() {
-    // URL del servidor - se adapta automáticamente al entorno
-    const serverUrl = import.meta.env.VITE_API_URL || 
-                     (import.meta.env.PROD 
-                       ? 'wss://tu-backend.railway.app' // Cambiar por tu URL de Railway
-                       : 'ws://localhost:3001');
+    // Configuración centralizada de URLs
+    const WS_URL = import.meta.env.VITE_WS_URL || 'ws://localhost:3001';
 
-    this.socket = io(serverUrl, {
+    this.socket = io(WS_URL, {
       auth: {
         token: localStorage.getItem('access_token')
       },
